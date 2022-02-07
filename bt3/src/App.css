@@ -1,0 +1,19 @@
+.timer {
+  display: block;
+  margin: 50px auto;
+  width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.grBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.center {
+  text-align: center;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BT 2 -</title>
+  </head>
+  <body>
+    <h3>Bài 2</h3>
+    <p>
+      mảng a : [ { id: 1, value: "1", }, { id: 1, value: "2", }, { id: 1, value:
+      "3", }, { id: 2, value: "1", }, { id: 2, value: "1", }, ];
+    </p>
+    <p>
+      mảng b: [ [ { id: 1, value: "1", }, { id: 1, value: "2", }, { id: 1,
+      value: "3", }, ], [ { id: 2, value: "1", }, { id: 2, value: "1", }, ], ];
+    </p>
+    <p>xử lý mảng a sao cho nhận được kết quả là mảng b.</p>
+
+    <script>
+      const arrayA = [
+        { id: 1, value: "1" },
+        { id: 1, value: "2" },
+        { id: 1, value: "3" },
+        { id: 2, value: "1" },
+        { id: 2, value: "1" },
+        { id: 1, value: "2" },
+      ];
+
+      function groupById(arr) {
+        arr = arr.sort((a, b) => a.id - b.id);
+        let result = [];
+
+        for (let i = 0; i < arr.length; i++) {
+          var dataItem = [];
+          dataItem.push(arr[i]);
+
+          while (i < arr.length - 1 && arr[i].id === arr[i + 1].id) {
+            dataItem.push(arr[i]);
+            i++;
+          }
+          result.push(dataItem);
+        }
+        return result;
+      }
+
+      function groupById2(arr) {
+        return arr.reduce((result, current) => {
+          (result[current.id] = result[current.id] || []).push(current);
+          return result;
+        }, []);
+      }
+
+      let result = groupById(arrayA);
+      console.log("result: ", result);
+    </script>
+  </body>
+</html>

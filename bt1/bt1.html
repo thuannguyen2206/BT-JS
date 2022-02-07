@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BT 1</title>
+  </head>
+  <body>
+    <h3>Bài 1</h3>
+    <p>
+      [1,4,6,2,3,4,12,13,1,4,12] Tính tổng mảng, sắp xếp mảng, tính số lần xuất
+      hiện của một phần tử tỏng mảng
+    </p>
+    <script>
+      const array = [1, 4, 6, 2, 3, 4, 12, 13, 1, 4, 12];
+
+      // Tính tổng mảng
+      function totalArr(arr) {
+        return arr.reduce((total, current) => total + current);
+      }
+      let total = totalArr(array);
+
+      console.log("Total: ", total);
+
+      // Sắp xếp mảng
+      const types = {
+        increment: "increment",
+        decrement: "decrement",
+      };
+      function sortArr(arr, type) {
+        if (type === types.increment) {
+          return arr.sort((a, b) => a - b);
+        } else if (type === types.decrement) {
+          return arr.sort((a, b) => b - a);
+        }
+        return arr.sort((a, b) => a - b);
+      }
+
+      // Tăng dần
+      let sortIncrement = sortArr(array, types.increment);
+      console.log("SortIncrement: ", sortIncrement);
+
+      // Sắp xếp mảng giảm dần
+      let sortDecrement = sortArr(array, types.decrement);
+      console.log("SortDecrement: ", sortDecrement);
+
+      // Tính số lần xuất hiện của một phần tử
+      function countAppear(arr, number) {
+        let count = 0;
+        array.forEach((num) => {
+          if (num === number) {
+            count += 1;
+          }
+        });
+        return count;
+      }
+
+      let number = 4; // số muốn tìm
+      let countResult = countAppear(array, number);
+      console.log("Count appear time: ", countResult);
+    </script>
+  </body>
+</html>
